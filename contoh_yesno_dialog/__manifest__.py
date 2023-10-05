@@ -32,8 +32,7 @@
     'assets': {
         'web.assets_backend': [
             'contoh_yesno_dialog/static/src/js/form/purchase_order.js',
+			'contoh_yesno_dialog/static/src/js/form/universal_confirmation.js'
 		],
 	},
-	# "qweb": ["static/src/xml/many2one_childselector.xml"],
-
 }
