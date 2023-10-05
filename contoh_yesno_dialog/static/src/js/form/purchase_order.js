@@ -29,13 +29,13 @@ export class PurchaseOrderYesNoFormController extends FormController {
                 this.dialogService.add(YesNonDialog, {
                     body: this.env._t("Are you want to set state to sent?."),
                     confirmyes: async () => {
-                        await this.orm.write(this.model.root.resModel, [this.model.root.resId], {
+                        await this.orm.write(this.model.root.resModel, [this.model.root.resIds], {
                          state: 'done',
                          });
                         resolve(true);
                     },
                     confirmno: async () => {
-                        await this.orm.write(this.model.root.resModel, [this.model.root.resId], {
+                        await this.orm.write(this.model.root.resModel, [this.model.root.resIds], {
                          state: 'sent',
                          });
                         resolve(true);
