@@ -18,28 +18,25 @@ export class PurchseOrderYesNoFormController extends FormController {
     async beforeExecuteActionButton(clickParams) {
         const action = clickParams.name;
         const record = this.model.root;
-        if(action==="action_send_mail"){
-            if (this.model.root.data.model ==='sale.order'){
-                return new Promise((resolve) => {
-                    this.dialogService.add(YesNonDialog, {
-                        body: this.env._t("Are you want to send another email?."),
-                        confirmyes: async () => {
-                            await this.orm.write(this.model.root.data.model, [this.model.root.data.res_id], {
-                             state: 'approved',
-                             });
-                            resolve(true);
-                        },
-                        confirmno: async () => {
-                            await this.orm.write(this.model.root.data.model, [this.model.root.data.res_id], {
-                             state: 'sent',
-                             });
-                            resolve(true);
-                        },
-                    }, {
-                        onClose: resolve.bind(null, false),
-                    });
+        alert('action '+ action)
+        if(action==="action_set_state"){
+            alert('testing ')
+            return new Promise((resolve) => {
+                this.dialogService.add(YesNonDialog, {
+                    body: this.env._t("Are you want to send another email?."),
+                    confirmyes: async () => {
+                        await this.orm.write('purchase.order', [this.model.root.resId], {
+                         state: 'sent',
+                         });
+                        resolve(true);
+                    },
+                    confirmno: async () => {
+                        resolve(true);
+                    },
+                }, {
+                    onClose: resolve.bind(null, false),
                 });
-            }
+            });
         }
         return super.beforeExecuteActionButton(clickParams);
     }

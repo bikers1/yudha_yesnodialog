@@ -1,5 +1,10 @@
 /** @odoo-module */
 
+/* Author   => Albertus Restiyanto Pramayudha
+* email    => xabre0010@gmail.com
+* linkedin => https://www.linkedin.com/in/albertus-restiyanto-pramayudha-470261a8/
+* youtube  => https://www.youtube.com/channel/UCCtgLDIfqehJ1R8cohMeTXA
+*/
 import { Dialog } from "@web/core/dialog/dialog";
 import { _lt } from "@web/core/l10n/translation";
 import { useChildRef } from "@web/core/utils/hooks";

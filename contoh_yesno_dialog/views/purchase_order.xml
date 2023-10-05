@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Author => Albertus Restiyanto Pramayudha
+     email  => xabre0010@gmail.com
+     linkedin => https://www.linkedin.com/in/albertus-restiyanto-pramayudha-470261a8/
+     youtube => https://www.youtube.com/channel/UCCtgLDIfqehJ1R8cohMeTXA
+-->
+<odoo>
+    <record id="view_yesno_form_inherit_purchase" model="ir.ui.view">
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_rfq_send']" position="after">
+                <button name="action_set_state" states="draft" string="Set State" type="object" class="oe_highlight" data-hotkey="g"/>
+            </xpath>
+            <xpath expr="//form" position="attributes">
+                <attribute name="js_class">purchase_order_yesno</attribute>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

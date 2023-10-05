@@ -21,9 +21,12 @@
 	'website': 'https://www.linkedin.com/in/albertus-restiyanto-pramayudha-470261a8/',
 	'depends': [
 		'base',
-		'web',
+		'purchase',
+		'yudha_yesno_dialog',
                 ],
-	'data': [],
+	'data': [
+		'views/purchase_order.xml',
+	],
 	'demo': [],
 	'images': [],
     'assets': {

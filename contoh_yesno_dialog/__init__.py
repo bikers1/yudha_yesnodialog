@@ -5,3 +5,5 @@
 # linkedin  => https://www.linkedin.com/in/albertus-restiyanto-pramayudha-470261a8/
 # youtube   => https://www.youtube.com/channel/UCCtgLDIfqehJ1R8cohMeTXA
 #################################################################################
+
+from . import models
