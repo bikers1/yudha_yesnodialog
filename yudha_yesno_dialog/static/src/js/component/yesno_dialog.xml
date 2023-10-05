@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+
+  <t t-name="web.YesNoDialog" owl="1">
+    <Dialog size="'md'" title="props.title" modalRef="modalRef">
+      <p t-out="props.body" style="white-space: pre-wrap;"/>
+      <t t-set-slot="footer" owl="1">
+        <button class="btn btn-primary" t-on-click="_confirm_yes" t-esc="props.confirmLabelYes"/>
+         <button class="btn btn-primary" t-on-click="_confirm_no" t-esc="props.confirmLabelNo"/>
+      </t>
+    </Dialog>
+  </t>
+
+  <t t-name="web.YesNoAlertDialog" owl="1">
+    <Dialog size="'sm'" title="props.title" contentClass="props.contentClass">
+      <p t-out="props.body" style="white-space: pre-wrap;"/>
+      <t t-set-slot="footer" owl="1">
+        <button class="btn btn-primary" t-on-click="_confirm_yes" t-esc="props.confirmLabelYes"/>
+          <button class="btn btn-primary" t-on-click="_confirm_no" t-esc="props.confirmLabelNo"/>
+      </t>
+    </Dialog>
+  </t>
+
+</templates>
