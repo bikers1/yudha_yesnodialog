@@ -25,21 +25,19 @@ export class PurchseOrderYesNoFormController extends FormController {
     async beforeExecuteActionButton(clickParams) {
         const action = clickParams.name;
         const record = this.model.root;
-        alert('action '+ action)
         if(action==="action_set_state"){
-            alert('testing ')
             return new Promise((resolve) => {
                 this.dialogService.add(YesNonDialog, {
                     body: this.env._t("Are you want to set state to sent?."),
                     confirmyes: async () => {
                         await this.orm.write(this.model.root.resModel, [this.model.root.resId], {
-                         state: 'sent',
+                         state: 'done',
                          });
                         resolve(true);
                     },
                     confirmno: async () => {
                         await this.orm.write(this.model.root.resModel, [this.model.root.resId], {
-                         state: 'done',
+                         state: 'sent',
                          });
                         resolve(true);
                     },
@@ -55,6 +53,5 @@ export class PurchseOrderYesNoFormController extends FormController {
 export const PurchaseOrderYesNoKonfirmFormView = {
     ...formView,
     Controller: PurchseOrderYesNoFormController,
-  //  buttonTemplate: "pest_service_order.RegeneratorTicketListController.Buttons",
 };
 registry.category("views").add("purchase_order_yesno", PurchseOrderYesNoFormController);
