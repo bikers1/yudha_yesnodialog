@@ -15,7 +15,7 @@ import {
     useService,
 } from "@web/core/utils/hooks";
 
-export class PurchseOrderYesNoFormController extends FormController {
+export class PurchaseOrderYesNoFormController extends FormController {
     setup() {
         super.setup(...arguments);
         this.dialogService = useService("dialog");
@@ -51,6 +51,6 @@ export class PurchseOrderYesNoFormController extends FormController {
 
 export const PurchaseOrderYesNoKonfirmFormView = {
     ...formView,
-    Controller: PurchseOrderYesNoFormController,
+    Controller: PurchaseOrderYesNoFormController,
 };
-registry.category("views").add("purchase_order_yesno", PurchseOrderYesNoFormController);
+registry.category("views").add("purchase_order_yesno", PurchaseOrderYesNoKonfirmFormView);
