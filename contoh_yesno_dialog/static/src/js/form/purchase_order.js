@@ -20,7 +20,6 @@ export class PurchseOrderYesNoFormController extends FormController {
         super.setup(...arguments);
         this.dialogService = useService("dialog");
         this.orm = useService("orm");
-        alert('jalan')
     }
     async beforeExecuteActionButton(clickParams) {
         const action = clickParams.name;
