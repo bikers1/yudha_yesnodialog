@@ -6,6 +6,7 @@
 * linkedin => https://www.linkedin.com/in/albertus-restiyanto-pramayudha-470261a8/
 * youtube  => https://www.youtube.com/channel/UCCtgLDIfqehJ1R8cohMeTXA
 */
+
 import { registry } from '@web/core/registry';
 import { YesNonDialog } from "@yudha_yesno_dialog/js/component/yesno_dialog";
 import { formView } from '@web/views/form/form_view';
@@ -29,13 +30,21 @@ export class PurchaseOrderYesNoFormController extends FormController {
                 this.dialogService.add(YesNonDialog, {
                     body: this.env._t("Are you want to set state to sent?."),
                     confirmyes: async () => {
-                        await this.orm.write(this.model.root.resModel, [this.model.root.resIds], {
+                        const canProceed = await this.model.root.save({
+                            noReload: true,
+                            stayInEdition: true,
+                        });
+                        await this.orm.write(this.model.root.resModel, [this.model.root.resId], {
                          state: 'done',
                          });
                         resolve(true);
                     },
                     confirmno: async () => {
-                        await this.orm.write(this.model.root.resModel, [this.model.root.resIds], {
+                        const canProceed = await this.model.root.save({
+                            noReload: true,
+                            stayInEdition: true,
+                        });
+                        await this.orm.write(this.model.root.resModel, [this.model.root.resId], {
                          state: 'sent',
                          });
                         resolve(true);
